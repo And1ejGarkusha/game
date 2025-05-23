@@ -1,0 +1,45 @@
+﻿  Source.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\utility(309,68): error C2512: Item::Item: нет подходящего конструктора по умолчанию
+  (компиляция исходного файла "Source.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\utility(309,68):
+  при попытке сопоставить список аргументов "()"
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\utility(309,68):
+  контекст создания экземпляра шаблона (сначала самый старый)
+  	C:\Users\andre\source\repos\Project16\Project16\Source.cpp(82,33):
+  	выполняется компиляция ссылки на экземпляр класс шаблон функции "std::map<std::string,Item,std::less<std::string>,std::allocator<std::pair<const std::string,Item>>>"
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\map(345,18):
+  	во время компиляции функции-члена класс шаблон "Item &std::map<std::string,Item,std::less<std::string>,std::allocator<std::pair<const std::string,Item>>>::operator [](const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)"
+  		C:\Users\andre\source\repos\Project16\Project16\Source.cpp(100,30):
+  		см. первую ссылку на "std::map<std::string,Item,std::less<std::string>,std::allocator<std::pair<const std::string,Item>>>::operator []" в "Player::addInventoryItem"
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\map(346,16):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<std::_Tree_node<std::pair<const std::string,Item>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::map<std::string,Item,std::less<std::string>,_Alloc>::_Try_emplace<const std::basic_string<char,std::char_traits<char>,std::allocator<char>>&,>(_Keyty)"
+          with
+          [
+              _Alloc=std::allocator<std::pair<const std::string,Item>>,
+              _Keyty=const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\map(205,56):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "std::_Tree_temp_node<std::allocator<std::_Tree_node<std::pair<const std::string,Item>,std::_Default_allocator_traits<_Alloc>::void_pointer>>>::_Tree_temp_node<const std::piecewise_construct_t&,std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &>,std::tuple<>>(_Alnode &,std::_Tree_node<std::pair<const std::string,Item>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,const std::piecewise_construct_t &,std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &> &&,std::tuple<> &&)"
+          with
+          [
+              _Alloc=std::allocator<std::pair<const std::string,Item>>,
+              _Alnode=std::allocator<std::_Tree_node<std::pair<const std::string,Item>,std::_Default_allocator_traits<std::allocator<std::pair<const std::string,Item>>>::void_pointer>>
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xtree(806,25):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const std::piecewise_construct_t&,std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &>,std::tuple<>>(_Alloc &,_Objty *const ,const std::piecewise_construct_t &,std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &> &&,std::tuple<> &&)"
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<std::pair<const std::string,Item>,std::_Default_allocator_traits<std::allocator<std::pair<const std::string,Item>>>::void_pointer>>,
+              _Ty=std::pair<const std::string,Item>,
+              _Objty=std::pair<const std::string,Item>
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xmemory(723,82):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<const std::string,Item>::pair<const std::basic_string<char,std::char_traits<char>,std::allocator<char>>&,>(std::piecewise_construct_t,std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &>,std::tuple<>)"
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\utility(313,15):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<const std::string,Item>::pair<std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &>,std::tuple<>,0,>(_Tuple1 &,_Tuple2 &,std::integer_sequence<size_t,0>,std::integer_sequence<size_t>)"
+          with
+          [
+              _Tuple1=std::tuple<const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &>,
+              _Tuple2=std::tuple<>
+          ]
+  
