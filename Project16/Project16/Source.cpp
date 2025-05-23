@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <string>
 #include <cstdlib>
@@ -8,12 +8,12 @@
 
 using namespace std;
 
-// Функция для генерации случайного числа в диапазоне [min, max]
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РіРµРЅРµСЂР°С†РёРё СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ [min, max]
 int randomInRange(int minVal, int maxVal) {
     return minVal + rand() % (maxVal - minVal + 1);
 }
 
-// Класс для представления предмета
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РїСЂРµРґРјРµС‚Р°
 class Item {
 public:
     string name;
@@ -24,7 +24,7 @@ public:
     Item(string n, string d, int v, int p) : name(n), description(d), value(v), power(p) {}
 };
 
-// Класс для представления навыка
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РЅР°РІС‹РєР°
 class Skill {
 public:
     string name;
@@ -35,7 +35,7 @@ public:
     Skill(string n, string d, int ml) : name(n), description(d), level(1), maxLevel(ml) {}
 };
 
-// Класс для представления корабля
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РєРѕСЂР°Р±Р»СЏ
 class Ship {
 public:
     string name;
@@ -49,20 +49,20 @@ public:
     vector<Item> upgrades;
 
     Ship(string n) : name(n), hull(100), maxHull(100), shields(50), maxShields(50), engines(30), maxEngines(30) {
-        // Базовое оружие корабля
-        weapons.push_back(Item("Лазерная пушка", "Базовая лазерная установка", 10, 15));
+        // Р‘Р°Р·РѕРІРѕРµ РѕСЂСѓР¶РёРµ РєРѕСЂР°Р±Р»СЏ
+        weapons.push_back(Item("Р›Р°Р·РµСЂРЅР°СЏ РїСѓС€РєР°", "Р‘Р°Р·РѕРІР°СЏ Р»Р°Р·РµСЂРЅР°СЏ СѓСЃС‚Р°РЅРѕРІРєР°", 10, 15));
     }
 
     void printStatus() {
-        cout << "\n=== Состояние корабля ===" << endl;
-        cout << "Корпус: " << hull << "/" << maxHull << endl;
-        cout << "Щиты: " << shields << "/" << maxShields << endl;
-        cout << "Двигатели: " << engines << "/" << maxEngines << endl;
-        cout << "Вооружение:" << endl;
+        cout << "\n=== РЎРѕСЃС‚РѕСЏРЅРёРµ РєРѕСЂР°Р±Р»СЏ ===" << endl;
+        cout << "РљРѕСЂРїСѓСЃ: " << hull << "/" << maxHull << endl;
+        cout << "Р©РёС‚С‹: " << shields << "/" << maxShields << endl;
+        cout << "Р”РІРёРіР°С‚РµР»Рё: " << engines << "/" << maxEngines << endl;
+        cout << "Р’РѕРѕСЂСѓР¶РµРЅРёРµ:" << endl;
         for (auto& weapon : weapons) {
-            cout << "- " << weapon.name << " (Базовый урон: " << weapon.power << ")" << endl;
+            cout << "- " << weapon.name << " (Р‘Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ: " << weapon.power << ")" << endl;
         }
-        cout << "Улучшения:" << endl;
+        cout << "РЈР»СѓС‡С€РµРЅРёСЏ:" << endl;
         for (auto& upgrade : upgrades) {
             cout << "- " << upgrade.name << endl;
         }
@@ -70,16 +70,16 @@ public:
 
     void repair(int amount) {
         hull = min(hull + amount, maxHull);
-        cout << "Корпус восстановлен на " << amount << " единиц." << endl;
+        cout << "РљРѕСЂРїСѓСЃ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅ РЅР° " << amount << " РµРґРёРЅРёС†." << endl;
     }
 
     void rechargeShields(int amount) {
         shields = min(shields + amount, maxShields);
-        cout << "Щиты перезаряжены на " << amount << " единиц." << endl;
+        cout << "Р©РёС‚С‹ РїРµСЂРµР·Р°СЂСЏР¶РµРЅС‹ РЅР° " << amount << " РµРґРёРЅРёС†." << endl;
     }
 };
 
-// Класс для представления персонажа
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р°
 class Character {
 public:
     string name;
@@ -91,97 +91,97 @@ public:
     vector<Item> inventory;
     vector<Skill> skills;
     int credits;
-    double critBonus; // Дополнительный шанс критического удара в процентах
+    double critBonus; // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ С€Р°РЅСЃ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° РІ РїСЂРѕС†РµРЅС‚Р°С…
 
     Character(string n) : name(n), health(100), maxHealth(100), armor(50), maxArmor(50), credits(500), critBonus(0.0) {
-        weapons.push_back(Item("Бластер", "Стандартный бластер", 5, 10));
-        skills.push_back(Skill("Стрельба", "Увеличивает точность и урон оружием", 5));
-        skills.push_back(Skill("Ремонт", "Позволяет лучше чинить корабль и снаряжение", 5));
-        skills.push_back(Skill("Переговоры", "Помогает получать лучшие сделки и информацию", 5));
+        weapons.push_back(Item("Р‘Р»Р°СЃС‚РµСЂ", "РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р±Р»Р°СЃС‚РµСЂ", 5, 10));
+        skills.push_back(Skill("РЎС‚СЂРµР»СЊР±Р°", "РЈРІРµР»РёС‡РёРІР°РµС‚ С‚РѕС‡РЅРѕСЃС‚СЊ Рё СѓСЂРѕРЅ РѕСЂСѓР¶РёРµРј", 5));
+        skills.push_back(Skill("Р РµРјРѕРЅС‚", "РџРѕР·РІРѕР»СЏРµС‚ Р»СѓС‡С€Рµ С‡РёРЅРёС‚СЊ РєРѕСЂР°Р±Р»СЊ Рё СЃРЅР°СЂСЏР¶РµРЅРёРµ", 5));
+        skills.push_back(Skill("РџРµСЂРµРіРѕРІРѕСЂС‹", "РџРѕРјРѕРіР°РµС‚ РїРѕР»СѓС‡Р°С‚СЊ Р»СѓС‡С€РёРµ СЃРґРµР»РєРё Рё РёРЅС„РѕСЂРјР°С†РёСЋ", 5));
     }
 
     void printStatus() {
-        cout << "\n=== Состояние персонажа ===" << endl;
-        cout << "Здоровье: " << health << "/" << maxHealth << endl;
-        cout << "Броня: " << armor << "/" << maxArmor << endl;
-        cout << "Кредиты: " << credits << endl;
-        cout << "Бонус шанса крит. удара: " << critBonus << "%" << endl;
-        cout << "Оружие:" << endl;
+        cout << "\n=== РЎРѕСЃС‚РѕСЏРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р° ===" << endl;
+        cout << "Р—РґРѕСЂРѕРІСЊРµ: " << health << "/" << maxHealth << endl;
+        cout << "Р‘СЂРѕРЅСЏ: " << armor << "/" << maxArmor << endl;
+        cout << "РљСЂРµРґРёС‚С‹: " << credits << endl;
+        cout << "Р‘РѕРЅСѓСЃ С€Р°РЅСЃР° РєСЂРёС‚. СѓРґР°СЂР°: " << critBonus << "%" << endl;
+        cout << "РћСЂСѓР¶РёРµ:" << endl;
         for (auto& weapon : weapons) {
-            cout << "- " << weapon.name << " (Базовый урон: " << weapon.power << ")" << endl;
+            cout << "- " << weapon.name << " (Р‘Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ: " << weapon.power << ")" << endl;
         }
-        cout << "Навыки:" << endl;
+        cout << "РќР°РІС‹РєРё:" << endl;
         for (auto& skill : skills) {
-            cout << "- " << skill.name << " (Уровень: " << skill.level << "/" << skill.maxLevel << ")" << endl;
+            cout << "- " << skill.name << " (РЈСЂРѕРІРµРЅСЊ: " << skill.level << "/" << skill.maxLevel << ")" << endl;
         }
     }
 
     void heal(int amount) {
         int oldHealth = health;
         health = min(health + amount, maxHealth);
-        cout << "Здоровье восстановлено с " << oldHealth << " до " << health << " единиц." << endl;
+        cout << "Р—РґРѕСЂРѕРІСЊРµ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРѕ СЃ " << oldHealth << " РґРѕ " << health << " РµРґРёРЅРёС†." << endl;
     }
 
     void repairArmor(int amount) {
         int oldArmor = armor;
         armor = min(armor + amount, maxArmor);
-        cout << "Броня восстановлена с " << oldArmor << " до " << armor << " единиц." << endl;
+        cout << "Р‘СЂРѕРЅСЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅР° СЃ " << oldArmor << " РґРѕ " << armor << " РµРґРёРЅРёС†." << endl;
     }
 };
 
-// Класс для представления врага
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РІСЂР°РіР°
 class Enemy {
 public:
     string name;
     string description;
     int health;
     int maxHealth;
-    int minPower; // минимальный урон
-    int maxPower; // максимальный урон
+    int minPower; // РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРЅ
+    int maxPower; // РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРЅ
     int reward;
 
     Enemy(string n, string d, int h, int minP, int maxP, int r)
         : name(n), description(d), health(h), maxHealth(h), minPower(minP), maxPower(maxP), reward(r) {}
 
     void printStatus() {
-        cout << name << " (Здоровье: " << health << "/" << maxHealth << ")" << endl;
+        cout << name << " (Р—РґРѕСЂРѕРІСЊРµ: " << health << "/" << maxHealth << ")" << endl;
     }
 
-    // Вычисляем случайный урон
+    // Р’С‹С‡РёСЃР»СЏРµРј СЃР»СѓС‡Р°Р№РЅС‹Р№ СѓСЂРѕРЅ
     int getRandomDamage() {
         return randomInRange(minPower, maxPower);
     }
 };
 
-// Класс для представления планеты
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РїР»Р°РЅРµС‚С‹
 class Planet {
 public:
     string name;
     string description;
     vector<Item> items;
     vector<Enemy> enemies;
-    bool hasClue;       // есть ли на планете зацепка
-    bool clueCollected; // собрана ли зацепка
-    bool hasRestSpot;   // возможность отдыха на планете
+    bool hasClue;       // РµСЃС‚СЊ Р»Рё РЅР° РїР»Р°РЅРµС‚Рµ Р·Р°С†РµРїРєР°
+    bool clueCollected; // СЃРѕР±СЂР°РЅР° Р»Рё Р·Р°С†РµРїРєР°
+    bool hasRestSpot;   // РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РѕС‚РґС‹С…Р° РЅР° РїР»Р°РЅРµС‚Рµ
 
     Planet(string n, string d, bool clue) : name(n), description(d), hasClue(clue), clueCollected(false) {
-        // 30% планета может иметь место для отдыха
+        // 30% РїР»Р°РЅРµС‚Р° РјРѕР¶РµС‚ РёРјРµС‚СЊ РјРµСЃС‚Рѕ РґР»СЏ РѕС‚РґС‹С…Р°
         hasRestSpot = (rand() % 100 < 30);
     }
 
-    // При исследовании планеты, если зацепка есть и еще не собрана, она собирается.
-    // Также, если планета имеет зону отдыха, игрок может отдохнуть.
+    // РџСЂРё РёСЃСЃР»РµРґРѕРІР°РЅРёРё РїР»Р°РЅРµС‚С‹, РµСЃР»Рё Р·Р°С†РµРїРєР° РµСЃС‚СЊ Рё РµС‰Рµ РЅРµ СЃРѕР±СЂР°РЅР°, РѕРЅР° СЃРѕР±РёСЂР°РµС‚СЃСЏ.
+    // РўР°РєР¶Рµ, РµСЃР»Рё РїР»Р°РЅРµС‚Р° РёРјРµРµС‚ Р·РѕРЅСѓ РѕС‚РґС‹С…Р°, РёРіСЂРѕРє РјРѕР¶РµС‚ РѕС‚РґРѕС…РЅСѓС‚СЊ.
     bool explore(Character& player) {
-        cout << "\nВы прибыли на " << name << ". " << description << endl;
+        cout << "\nР’С‹ РїСЂРёР±С‹Р»Рё РЅР° " << name << ". " << description << endl;
         bool clueFoundHere = false;
         if (hasClue && !clueCollected) {
-            cout << "\nВы обнаружили зацепку о местонахождении преступника!" << endl;
+            cout << "\nР’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё Р·Р°С†РµРїРєСѓ Рѕ РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРё РїСЂРµСЃС‚СѓРїРЅРёРєР°!" << endl;
             clueCollected = true;
             clueFoundHere = true;
         }
 
         if (!items.empty()) {
-            cout << "\nВы нашли предметы:" << endl;
+            cout << "\nР’С‹ РЅР°С€Р»Рё РїСЂРµРґРјРµС‚С‹:" << endl;
             for (auto& item : items) {
                 cout << "- " << item.name << " (" << item.description << ")" << endl;
                 player.inventory.push_back(item);
@@ -190,20 +190,20 @@ public:
         }
 
         if (!enemies.empty()) {
-            cout << "\nВас атакуют!" << endl;
+            cout << "\nР’Р°СЃ Р°С‚Р°РєСѓСЋС‚!" << endl;
             combat(player, enemies);
         }
 
-        // Возможность отдохнуть, если зона отдыха присутствует
+        // Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ РѕС‚РґРѕС…РЅСѓС‚СЊ, РµСЃР»Рё Р·РѕРЅР° РѕС‚РґС‹С…Р° РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚
         if (hasRestSpot) {
             int restChoice;
-            cout << "\nВы обнаружили уютное место для отдыха. Желаете отдохнуть? (1 - да, 0 - нет): ";
+            cout << "\nР’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СѓСЋС‚РЅРѕРµ РјРµСЃС‚Рѕ РґР»СЏ РѕС‚РґС‹С…Р°. Р–РµР»Р°РµС‚Рµ РѕС‚РґРѕС…РЅСѓС‚СЊ? (1 - РґР°, 0 - РЅРµС‚): ";
             cin >> restChoice;
             if (restChoice == 1) {
-                // Отдых восстанавливает здоровье и броню на случайную величину
+                // РћС‚РґС‹С… РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ Рё Р±СЂРѕРЅСЋ РЅР° СЃР»СѓС‡Р°Р№РЅСѓСЋ РІРµР»РёС‡РёРЅСѓ
                 int healAmount = randomInRange(10, 20);
                 int armorAmount = randomInRange(5, 15);
-                cout << "Вы отдыхаете и восстанавливаете силы..." << endl;
+                cout << "Р’С‹ РѕС‚РґС‹С…Р°РµС‚Рµ Рё РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚Рµ СЃРёР»С‹..." << endl;
                 player.heal(healAmount);
                 player.repairArmor(armorAmount);
             }
@@ -211,41 +211,41 @@ public:
         return clueFoundHere;
     }
 
-    // Бой на планете с добавлением варианта "кувырок" для уклонения
+    // Р‘РѕР№ РЅР° РїР»Р°РЅРµС‚Рµ СЃ РґРѕР±Р°РІР»РµРЅРёРµРј РІР°СЂРёР°РЅС‚Р° "РєСѓРІС‹СЂРѕРє" РґР»СЏ СѓРєР»РѕРЅРµРЅРёСЏ
     void combat(Character& player, vector<Enemy>& enemies) {
         bool playerDodged = false;
         while (!enemies.empty() && player.health > 0) {
-            cout << "\n=== НАЗЕМНЫЙ БОЙ ===" << endl;
-            cout << "Ваше состояние:" << endl;
+            cout << "\n=== РќРђР—Р•РњРќР«Р™ Р‘РћР™ ===" << endl;
+            cout << "Р’Р°С€Рµ СЃРѕСЃС‚РѕСЏРЅРёРµ:" << endl;
             player.printStatus();
 
-            cout << "\nПротивники:" << endl;
+            cout << "\nРџСЂРѕС‚РёРІРЅРёРєРё:" << endl;
             for (size_t i = 0; i < enemies.size(); i++) {
                 cout << i + 1 << ". ";
                 enemies[i].printStatus();
             }
 
-            cout << "\nВыберите действие:" << endl;
-            cout << "1. Атаковать" << endl;
-            cout << "2. Использовать предмет" << endl;
-            cout << "3. Попытаться убежать" << endl;
-            cout << "4. Увернуться (кувырок)" << endl;
+            cout << "\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:" << endl;
+            cout << "1. РђС‚Р°РєРѕРІР°С‚СЊ" << endl;
+            cout << "2. РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРµРґРјРµС‚" << endl;
+            cout << "3. РџРѕРїС‹С‚Р°С‚СЊСЃСЏ СѓР±РµР¶Р°С‚СЊ" << endl;
+            cout << "4. РЈРІРµСЂРЅСѓС‚СЊСЃСЏ (РєСѓРІС‹СЂРѕРє)" << endl;
 
             int choice;
             cin >> choice;
-            playerDodged = false; // сброс флага уклонения
+            playerDodged = false; // СЃР±СЂРѕСЃ С„Р»Р°РіР° СѓРєР»РѕРЅРµРЅРёСЏ
 
             if (choice == 1) {
-                cout << "Выберите оружие:" << endl;
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕСЂСѓР¶РёРµ:" << endl;
                 for (size_t i = 0; i < player.weapons.size(); i++) {
                     cout << i + 1 << ". " << player.weapons[i].name
-                        << " (Базовый урон: " << player.weapons[i].power << ")" << endl;
+                        << " (Р‘Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ: " << player.weapons[i].power << ")" << endl;
                 }
                 int weaponChoice;
                 cin >> weaponChoice;
                 weaponChoice--;
                 if (weaponChoice >= 0 && weaponChoice < player.weapons.size()) {
-                    cout << "Выберите цель:" << endl;
+                    cout << "Р’С‹Р±РµСЂРёС‚Рµ С†РµР»СЊ:" << endl;
                     for (size_t i = 0; i < enemies.size(); i++) {
                         cout << i + 1 << ". " << enemies[i].name << endl;
                     }
@@ -255,30 +255,30 @@ public:
                     if (target >= 0 && target < enemies.size()) {
                         int baseDamage = player.weapons[weaponChoice].power;
                         int damage = randomInRange(max(1, baseDamage - 2), baseDamage + 2);
-                        // Критический удар: базовый шанс 5% + бонус игрока
+                        // РљСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ: Р±Р°Р·РѕРІС‹Р№ С€Р°РЅСЃ 5% + Р±РѕРЅСѓСЃ РёРіСЂРѕРєР°
                         int critChance = 5 + static_cast<int>(player.critBonus);
                         if (rand() % 100 < critChance) {
                             damage *= 2;
-                            cout << "КРИТ! ";
+                            cout << "РљР РРў! ";
                         }
-                        if (rand() % 100 < 80) { // шанс попадания 80%
+                        if (rand() % 100 < 80) { // С€Р°РЅСЃ РїРѕРїР°РґР°РЅРёСЏ 80%
                             enemies[target].health -= damage;
-                            cout << "Вы нанесли " << damage << " урона " << enemies[target].name << "!" << endl;
+                            cout << "Р’С‹ РЅР°РЅРµСЃР»Рё " << damage << " СѓСЂРѕРЅР° " << enemies[target].name << "!" << endl;
                             if (enemies[target].health <= 0) {
-                                cout << enemies[target].name << " побежден!" << endl;
+                                cout << enemies[target].name << " РїРѕР±РµР¶РґРµРЅ!" << endl;
                                 player.credits += enemies[target].reward;
                                 enemies.erase(enemies.begin() + target);
                             }
                         }
                         else {
-                            cout << "Вы промахнулись!" << endl;
+                            cout << "Р’С‹ РїСЂРѕРјР°С…РЅСѓР»РёСЃСЊ!" << endl;
                         }
                     }
                 }
             }
             else if (choice == 2) {
                 if (!player.inventory.empty()) {
-                    cout << "Выберите предмет:" << endl;
+                    cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСЂРµРґРјРµС‚:" << endl;
                     for (size_t i = 0; i < player.inventory.size(); i++) {
                         cout << i + 1 << ". " << player.inventory[i].name << endl;
                     }
@@ -287,40 +287,40 @@ public:
                     itemChoice--;
                     if (itemChoice >= 0 && itemChoice < player.inventory.size()) {
                         Item usedItem = player.inventory[itemChoice];
-                        if (usedItem.name.find("Аптечка") != string::npos) {
+                        if (usedItem.name.find("РђРїС‚РµС‡РєР°") != string::npos) {
                             player.heal(usedItem.power);
                         }
-                        else if (usedItem.name.find("Броня") != string::npos) {
+                        else if (usedItem.name.find("Р‘СЂРѕРЅСЏ") != string::npos) {
                             player.repairArmor(usedItem.power);
                         }
                         player.inventory.erase(player.inventory.begin() + itemChoice);
                     }
                 }
                 else {
-                    cout << "У вас нет предметов!" << endl;
+                    cout << "РЈ РІР°СЃ РЅРµС‚ РїСЂРµРґРјРµС‚РѕРІ!" << endl;
                 }
             }
             else if (choice == 3) {
                 if (rand() % 100 < 50) {
-                    cout << "Вам удалось сбежать!" << endl;
+                    cout << "Р’Р°Рј СѓРґР°Р»РѕСЃСЊ СЃР±РµР¶Р°С‚СЊ!" << endl;
                     return;
                 }
                 else {
-                    cout << "Вам не удалось сбежать!" << endl;
+                    cout << "Р’Р°Рј РЅРµ СѓРґР°Р»РѕСЃСЊ СЃР±РµР¶Р°С‚СЊ!" << endl;
                 }
             }
-            else if (choice == 4) { // Увернуться
-                cout << "Вы совершаете кувырок, чтобы уклониться от атак!" << endl;
+            else if (choice == 4) { // РЈРІРµСЂРЅСѓС‚СЊСЃСЏ
+                cout << "Р’С‹ СЃРѕРІРµСЂС€Р°РµС‚Рµ РєСѓРІС‹СЂРѕРє, С‡С‚РѕР±С‹ СѓРєР»РѕРЅРёС‚СЊСЃСЏ РѕС‚ Р°С‚Р°Рє!" << endl;
                 if (rand() % 100 < 50) {
-                    cout << "Уклонение успешно! Вы избежали урона в этом раунде." << endl;
+                    cout << "РЈРєР»РѕРЅРµРЅРёРµ СѓСЃРїРµС€РЅРѕ! Р’С‹ РёР·Р±РµР¶Р°Р»Рё СѓСЂРѕРЅР° РІ СЌС‚РѕРј СЂР°СѓРЅРґРµ." << endl;
                     playerDodged = true;
                 }
                 else {
-                    cout << "Уклонение провалилось!" << endl;
+                    cout << "РЈРєР»РѕРЅРµРЅРёРµ РїСЂРѕРІР°Р»РёР»РѕСЃСЊ!" << endl;
                 }
             }
 
-            // Ход врагов
+            // РҐРѕРґ РІСЂР°РіРѕРІ
             if (!playerDodged) {
                 for (auto& enemy : enemies) {
                     int enemyDamage = enemy.getRandomDamage();
@@ -330,30 +330,30 @@ public:
                         if (player.armor < 0) player.armor = 0;
                         int healthDamage = enemyDamage - armorDamage;
                         player.health -= healthDamage;
-                        cout << enemy.name << " наносит вам " << enemyDamage
-                            << " урона (Броня поглотила " << armorDamage << " урона)!" << endl;
+                        cout << enemy.name << " РЅР°РЅРѕСЃРёС‚ РІР°Рј " << enemyDamage
+                            << " СѓСЂРѕРЅР° (Р‘СЂРѕРЅСЏ РїРѕРіР»РѕС‚РёР»Р° " << armorDamage << " СѓСЂРѕРЅР°)!" << endl;
                     }
                     else {
                         player.health -= enemyDamage;
-                        cout << enemy.name << " наносит вам " << enemyDamage << " урона!" << endl;
+                        cout << enemy.name << " РЅР°РЅРѕСЃРёС‚ РІР°Рј " << enemyDamage << " СѓСЂРѕРЅР°!" << endl;
                     }
                 }
             }
             else {
-                cout << "Все атаки врагов в этом раунде вы увернулись." << endl;
+                cout << "Р’СЃРµ Р°С‚Р°РєРё РІСЂР°РіРѕРІ РІ СЌС‚РѕРј СЂР°СѓРЅРґРµ РІС‹ СѓРІРµСЂРЅСѓР»РёСЃСЊ." << endl;
             }
 
             if (player.health <= 0) {
-                cout << "Вы погибли!" << endl;
+                cout << "Р’С‹ РїРѕРіРёР±Р»Рё!" << endl;
                 return;
             }
         }
         if (player.health > 0)
-            cout << "Все враги побеждены!" << endl;
+            cout << "Р’СЃРµ РІСЂР°РіРё РїРѕР±РµР¶РґРµРЅС‹!" << endl;
     }
 };
 
-// Класс для представления сектора
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ СЃРµРєС‚РѕСЂР°
 class Sector {
 public:
     string name;
@@ -362,40 +362,40 @@ public:
 
     Sector(string n) : name(n) {}
 
-    // Космический бой с возможностью маневра уклонения
+    // РљРѕСЃРјРёС‡РµСЃРєРёР№ Р±РѕР№ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ РјР°РЅРµРІСЂР° СѓРєР»РѕРЅРµРЅРёСЏ
     void spaceCombat(Ship& ship, Character& player, vector<Enemy>& enemies) {
         bool shipDodged = false;
         while (!enemies.empty() && ship.hull > 0) {
-            cout << "\n=== КОСМИЧЕСКИЙ БОЙ ===" << endl;
-            cout << "Состояние корабля:" << endl;
+            cout << "\n=== РљРћРЎРњРР§Р•РЎРљРР™ Р‘РћР™ ===" << endl;
+            cout << "РЎРѕСЃС‚РѕСЏРЅРёРµ РєРѕСЂР°Р±Р»СЏ:" << endl;
             ship.printStatus();
 
-            cout << "\nПротивники:" << endl;
+            cout << "\nРџСЂРѕС‚РёРІРЅРёРєРё:" << endl;
             for (size_t i = 0; i < enemies.size(); i++) {
                 cout << i + 1 << ". ";
                 enemies[i].printStatus();
             }
 
-            cout << "\nВыберите действие:" << endl;
-            cout << "1. Атаковать" << endl;
-            cout << "2. Использовать улучшение" << endl;
-            cout << "3. Попытаться сбежать" << endl;
-            cout << "4. Маневр уклонения" << endl;
+            cout << "\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:" << endl;
+            cout << "1. РђС‚Р°РєРѕРІР°С‚СЊ" << endl;
+            cout << "2. РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СѓР»СѓС‡С€РµРЅРёРµ" << endl;
+            cout << "3. РџРѕРїС‹С‚Р°С‚СЊСЃСЏ СЃР±РµР¶Р°С‚СЊ" << endl;
+            cout << "4. РњР°РЅРµРІСЂ СѓРєР»РѕРЅРµРЅРёСЏ" << endl;
 
             int choice;
             cin >> choice;
             shipDodged = false;
 
             if (choice == 1) {
-                cout << "Выберите оружие:" << endl;
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕСЂСѓР¶РёРµ:" << endl;
                 for (size_t i = 0; i < ship.weapons.size(); i++) {
-                    cout << i + 1 << ". " << ship.weapons[i].name << " (Базовый урон: " << ship.weapons[i].power << ")" << endl;
+                    cout << i + 1 << ". " << ship.weapons[i].name << " (Р‘Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ: " << ship.weapons[i].power << ")" << endl;
                 }
                 int weaponChoice;
                 cin >> weaponChoice;
                 weaponChoice--;
                 if (weaponChoice >= 0 && weaponChoice < ship.weapons.size()) {
-                    cout << "Выберите цель:" << endl;
+                    cout << "Р’С‹Р±РµСЂРёС‚Рµ С†РµР»СЊ:" << endl;
                     for (size_t i = 0; i < enemies.size(); i++) {
                         cout << i + 1 << ". " << enemies[i].name << endl;
                     }
@@ -405,30 +405,30 @@ public:
                     if (target >= 0 && target < enemies.size()) {
                         int baseDamage = ship.weapons[weaponChoice].power;
                         int damage = randomInRange(max(1, baseDamage - 2), baseDamage + 2);
-                        // Критический удар с базовым шансом 5% + бонус игрока (поскольку для корабля нет отдельного бонуса, используем общий шанс)
+                        // РљСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ СЃ Р±Р°Р·РѕРІС‹Рј С€Р°РЅСЃРѕРј 5% + Р±РѕРЅСѓСЃ РёРіСЂРѕРєР° (РїРѕСЃРєРѕР»СЊРєСѓ РґР»СЏ РєРѕСЂР°Р±Р»СЏ РЅРµС‚ РѕС‚РґРµР»СЊРЅРѕРіРѕ Р±РѕРЅСѓСЃР°, РёСЃРїРѕР»СЊР·СѓРµРј РѕР±С‰РёР№ С€Р°РЅСЃ)
                         int critChance = 5;
                         if (rand() % 100 < critChance) {
                             damage *= 2;
-                            cout << "КРИТИЧЕСКИЙ УДАР! ";
+                            cout << "РљР РРўРР§Р•РЎРљРР™ РЈР”РђР ! ";
                         }
                         if (rand() % 100 < 70) {
                             enemies[target].health -= damage;
-                            cout << "Вы нанесли " << damage << " урона " << enemies[target].name << "!" << endl;
+                            cout << "Р’С‹ РЅР°РЅРµСЃР»Рё " << damage << " СѓСЂРѕРЅР° " << enemies[target].name << "!" << endl;
                             if (enemies[target].health <= 0) {
-                                cout << enemies[target].name << " уничтожен!" << endl;
+                                cout << enemies[target].name << " СѓРЅРёС‡С‚РѕР¶РµРЅ!" << endl;
                                 player.credits += enemies[target].reward;
                                 enemies.erase(enemies.begin() + target);
                             }
                         }
                         else {
-                            cout << "Вы промахнулись!" << endl;
+                            cout << "Р’С‹ РїСЂРѕРјР°С…РЅСѓР»РёСЃСЊ!" << endl;
                         }
                     }
                 }
             }
             else if (choice == 2) {
                 if (!ship.upgrades.empty()) {
-                    cout << "Выберите улучшение:" << endl;
+                    cout << "Р’С‹Р±РµСЂРёС‚Рµ СѓР»СѓС‡С€РµРЅРёРµ:" << endl;
                     for (size_t i = 0; i < ship.upgrades.size(); i++) {
                         cout << i + 1 << ". " << ship.upgrades[i].name << endl;
                     }
@@ -437,40 +437,40 @@ public:
                     upgradeChoice--;
                     if (upgradeChoice >= 0 && upgradeChoice < ship.upgrades.size()) {
                         Item usedUpgrade = ship.upgrades[upgradeChoice];
-                        if (usedUpgrade.name.find("Щит") != string::npos) {
+                        if (usedUpgrade.name.find("Р©РёС‚") != string::npos) {
                             ship.rechargeShields(usedUpgrade.power);
                         }
-                        else if (usedUpgrade.name.find("Ремонт") != string::npos) {
+                        else if (usedUpgrade.name.find("Р РµРјРѕРЅС‚") != string::npos) {
                             ship.repair(usedUpgrade.power);
                         }
                         ship.upgrades.erase(ship.upgrades.begin() + upgradeChoice);
                     }
                 }
                 else {
-                    cout << "У вас нет улучшений!" << endl;
+                    cout << "РЈ РІР°СЃ РЅРµС‚ СѓР»СѓС‡С€РµРЅРёР№!" << endl;
                 }
             }
             else if (choice == 3) {
                 if (rand() % 100 < ship.engines) {
-                    cout << "Вам удалось сбежать!" << endl;
+                    cout << "Р’Р°Рј СѓРґР°Р»РѕСЃСЊ СЃР±РµР¶Р°С‚СЊ!" << endl;
                     return;
                 }
                 else {
-                    cout << "Вам не удалось сбежать!" << endl;
+                    cout << "Р’Р°Рј РЅРµ СѓРґР°Р»РѕСЃСЊ СЃР±РµР¶Р°С‚СЊ!" << endl;
                 }
             }
             else if (choice == 4) {
-                cout << "Вы выполняете маневр уклонения!" << endl;
+                cout << "Р’С‹ РІС‹РїРѕР»РЅСЏРµС‚Рµ РјР°РЅРµРІСЂ СѓРєР»РѕРЅРµРЅРёСЏ!" << endl;
                 if (rand() % 100 < 50) {
-                    cout << "Маневр успешен! Все атаки врагов в этом раунде нейтрализованы." << endl;
+                    cout << "РњР°РЅРµРІСЂ СѓСЃРїРµС€РµРЅ! Р’СЃРµ Р°С‚Р°РєРё РІСЂР°РіРѕРІ РІ СЌС‚РѕРј СЂР°СѓРЅРґРµ РЅРµР№С‚СЂР°Р»РёР·РѕРІР°РЅС‹." << endl;
                     shipDodged = true;
                 }
                 else {
-                    cout << "Маневр провалился!" << endl;
+                    cout << "РњР°РЅРµРІСЂ РїСЂРѕРІР°Р»РёР»СЃСЏ!" << endl;
                 }
             }
 
-            // Ход врагов
+            // РҐРѕРґ РІСЂР°РіРѕРІ
             if (!shipDodged) {
                 for (auto& enemy : enemies) {
                     int enemyDamage = randomInRange(enemy.minPower, enemy.maxPower);
@@ -480,46 +480,46 @@ public:
                         if (ship.shields < 0) ship.shields = 0;
                         int hullDamage = enemyDamage - shieldDamage;
                         ship.hull -= hullDamage;
-                        cout << enemy.name << " наносит вашему кораблю " << enemyDamage
-                            << " урона (Щиты поглотили " << shieldDamage << " урона)!" << endl;
+                        cout << enemy.name << " РЅР°РЅРѕСЃРёС‚ РІР°С€РµРјСѓ РєРѕСЂР°Р±Р»СЋ " << enemyDamage
+                            << " СѓСЂРѕРЅР° (Р©РёС‚С‹ РїРѕРіР»РѕС‚РёР»Рё " << shieldDamage << " СѓСЂРѕРЅР°)!" << endl;
                     }
                     else {
                         ship.hull -= enemyDamage;
-                        cout << enemy.name << " наносит вашему кораблю " << enemyDamage << " урона!" << endl;
+                        cout << enemy.name << " РЅР°РЅРѕСЃРёС‚ РІР°С€РµРјСѓ РєРѕСЂР°Р±Р»СЋ " << enemyDamage << " СѓСЂРѕРЅР°!" << endl;
                     }
                 }
             }
             else {
-                cout << "Все атаки врагов в этом раунде вы увернулись." << endl;
+                cout << "Р’СЃРµ Р°С‚Р°РєРё РІСЂР°РіРѕРІ РІ СЌС‚РѕРј СЂР°СѓРЅРґРµ РІС‹ СѓРІРµСЂРЅСѓР»РёСЃСЊ." << endl;
             }
 
             if (ship.hull <= 0) {
-                cout << "Ваш корабль уничтожен!" << endl;
+                cout << "Р’Р°С€ РєРѕСЂР°Р±Р»СЊ СѓРЅРёС‡С‚РѕР¶РµРЅ!" << endl;
                 player.health = 0;
                 return;
             }
         }
         if (ship.hull > 0)
-            cout << "Все враги уничтожены!" << endl;
+            cout << "Р’СЃРµ РІСЂР°РіРё СѓРЅРёС‡С‚РѕР¶РµРЅС‹!" << endl;
     }
 
-    // При исследовании сектора случайное событие происходит при активном перемещении.
+    // РџСЂРё РёСЃСЃР»РµРґРѕРІР°РЅРёРё СЃРµРєС‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅРѕРµ СЃРѕР±С‹С‚РёРµ РїСЂРѕРёСЃС…РѕРґРёС‚ РїСЂРё Р°РєС‚РёРІРЅРѕРј РїРµСЂРµРјРµС‰РµРЅРёРё.
     void explore(Ship& ship, Character& player, int& globalClues) {
-        cout << "\nВы вошли в " << name << endl;
+        cout << "\nР’С‹ РІРѕС€Р»Рё РІ " << name << endl;
 
-        // Если есть космические враги, начинается космический бой
+        // Р•СЃР»Рё РµСЃС‚СЊ РєРѕСЃРјРёС‡РµСЃРєРёРµ РІСЂР°РіРё, РЅР°С‡РёРЅР°РµС‚СЃСЏ РєРѕСЃРјРёС‡РµСЃРєРёР№ Р±РѕР№
         if (!spaceEnemies.empty()) {
-            cout << "\nВас атакуют в космосе!" << endl;
+            cout << "\nР’Р°СЃ Р°С‚Р°РєСѓСЋС‚ РІ РєРѕСЃРјРѕСЃРµ!" << endl;
             spaceCombat(ship, player, spaceEnemies);
         }
 
         if (!planets.empty()) {
-            cout << "\nДоступные планеты в секторе:" << endl;
+            cout << "\nР”РѕСЃС‚СѓРїРЅС‹Рµ РїР»Р°РЅРµС‚С‹ РІ СЃРµРєС‚РѕСЂРµ:" << endl;
             for (size_t i = 0; i < planets.size(); i++) {
                 cout << i + 1 << ". " << planets[i].name << endl;
             }
 
-            cout << "Выберите планету для исследования (0 - уйти из сектора): ";
+            cout << "Р’С‹Р±РµСЂРёС‚Рµ РїР»Р°РЅРµС‚Сѓ РґР»СЏ РёСЃСЃР»РµРґРѕРІР°РЅРёСЏ (0 - СѓР№С‚Рё РёР· СЃРµРєС‚РѕСЂР°): ";
             int choice;
             cin >> choice;
             if (choice > 0 && choice <= planets.size()) {
@@ -529,20 +529,20 @@ public:
             }
         }
         else {
-            cout << "В этом секторе нет планет." << endl;
+            cout << "Р’ СЌС‚РѕРј СЃРµРєС‚РѕСЂРµ РЅРµС‚ РїР»Р°РЅРµС‚." << endl;
         }
 
-        // Дополнительное случайное событие при перемещении между локациями
+        // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ СЃР»СѓС‡Р°Р№РЅРѕРµ СЃРѕР±С‹С‚РёРµ РїСЂРё РїРµСЂРµРјРµС‰РµРЅРёРё РјРµР¶РґСѓ Р»РѕРєР°С†РёСЏРјРё
         if (rand() % 100 < 20) {
-            cout << "\nСлучайное событие: вы обнаружили заброшенный космический корабль! ";
+            cout << "\nРЎР»СѓС‡Р°Р№РЅРѕРµ СЃРѕР±С‹С‚РёРµ: РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё Р·Р°Р±СЂРѕС€РµРЅРЅС‹Р№ РєРѕСЃРјРёС‡РµСЃРєРёР№ РєРѕСЂР°Р±Р»СЊ! ";
             int bonus = randomInRange(5, 10);
-            cout << "Вы получили бонус в " << bonus << " кредитов." << endl;
+            cout << "Р’С‹ РїРѕР»СѓС‡РёР»Рё Р±РѕРЅСѓСЃ РІ " << bonus << " РєСЂРµРґРёС‚РѕРІ." << endl;
             player.credits += bonus;
         }
     }
 };
 
-// Класс для представления рынка
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ СЂС‹РЅРєР°
 class Market {
 public:
     vector<Item> items;
@@ -550,44 +550,44 @@ public:
     vector<Item> weaponUpgrades;
 
     Market() {
-        // Инициализация обычных предметов
-        items.push_back(Item("Аптечка", "Восстанавливает здоровье", 50, 25));
-        items.push_back(Item("Броня", "Восстанавливает броню", 40, 30));
-        items.push_back(Item("Мощный бластер", "Улучшенное оружие", 150, 20));
-        items.push_back(Item("Малый энергетический щит", "Небольшое усиление щитов", 60, 20));
+        // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±С‹С‡РЅС‹С… РїСЂРµРґРјРµС‚РѕРІ
+        items.push_back(Item("РђРїС‚РµС‡РєР°", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ", 50, 25));
+        items.push_back(Item("Р‘СЂРѕРЅСЏ", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р±СЂРѕРЅСЋ", 40, 30));
+        items.push_back(Item("РњРѕС‰РЅС‹Р№ Р±Р»Р°СЃС‚РµСЂ", "РЈР»СѓС‡С€РµРЅРЅРѕРµ РѕСЂСѓР¶РёРµ", 150, 20));
+        items.push_back(Item("РњР°Р»С‹Р№ СЌРЅРµСЂРіРµС‚РёС‡РµСЃРєРёР№ С‰РёС‚", "РќРµР±РѕР»СЊС€РѕРµ СѓСЃРёР»РµРЅРёРµ С‰РёС‚РѕРІ", 60, 20));
 
-        // Улучшения для корабля
-        shipUpgrades.push_back(Item("Улучшенные щиты", "Увеличивает мощность щитов", 200, 30));
-        shipUpgrades.push_back(Item("Ремонтный дрон", "Восстанавливает корпус", 180, 40));
-        shipUpgrades.push_back(Item("Турбо-лазер", "Мощное корабельное оружие", 300, 50));
+        // РЈР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РєРѕСЂР°Р±Р»СЏ
+        shipUpgrades.push_back(Item("РЈР»СѓС‡С€РµРЅРЅС‹Рµ С‰РёС‚С‹", "РЈРІРµР»РёС‡РёРІР°РµС‚ РјРѕС‰РЅРѕСЃС‚СЊ С‰РёС‚РѕРІ", 200, 30));
+        shipUpgrades.push_back(Item("Р РµРјРѕРЅС‚РЅС‹Р№ РґСЂРѕРЅ", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєРѕСЂРїСѓСЃ", 180, 40));
+        shipUpgrades.push_back(Item("РўСѓСЂР±Рѕ-Р»Р°Р·РµСЂ", "РњРѕС‰РЅРѕРµ РєРѕСЂР°Р±РµР»СЊРЅРѕРµ РѕСЂСѓР¶РёРµ", 300, 50));
 
-        // Перманентные улучшения для оружия
-        weaponUpgrades.push_back(Item("Модуль критического прицеливания", "Увеличивает шанс крит. удара на 5%", 250, 5));
-        weaponUpgrades.push_back(Item("Усилитель урона", "Увеличивает базовый урон оружия на 3", 300, 3));
+        // РџРµСЂРјР°РЅРµРЅС‚РЅС‹Рµ СѓР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РѕСЂСѓР¶РёСЏ
+        weaponUpgrades.push_back(Item("РњРѕРґСѓР»СЊ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ РїСЂРёС†РµР»РёРІР°РЅРёСЏ", "РЈРІРµР»РёС‡РёРІР°РµС‚ С€Р°РЅСЃ РєСЂРёС‚. СѓРґР°СЂР° РЅР° 5%", 250, 5));
+        weaponUpgrades.push_back(Item("РЈСЃРёР»РёС‚РµР»СЊ СѓСЂРѕРЅР°", "РЈРІРµР»РёС‡РёРІР°РµС‚ Р±Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ РѕСЂСѓР¶РёСЏ РЅР° 3", 300, 3));
 
-        // Добавим еще несколько случайных предметов на рынок
-        items.push_back(Item("Набор ремонта", "Восстанавливает здоровье и броню", 100, 15));
-        items.push_back(Item("Энергетический эссенс", "Мгновенно восстанавливает немного здоровья", 80, 20));
+        // Р”РѕР±Р°РІРёРј РµС‰Рµ РЅРµСЃРєРѕР»СЊРєРѕ СЃР»СѓС‡Р°Р№РЅС‹С… РїСЂРµРґРјРµС‚РѕРІ РЅР° СЂС‹РЅРѕРє
+        items.push_back(Item("РќР°Р±РѕСЂ СЂРµРјРѕРЅС‚Р°", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ Рё Р±СЂРѕРЅСЋ", 100, 15));
+        items.push_back(Item("Р­РЅРµСЂРіРµС‚РёС‡РµСЃРєРёР№ СЌСЃСЃРµРЅСЃ", "РњРіРЅРѕРІРµРЅРЅРѕ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРµРјРЅРѕРіРѕ Р·РґРѕСЂРѕРІСЊСЏ", 80, 20));
     }
 
     void visit(Character& player, Ship& ship) {
         while (true) {
-            cout << "\n=== РЫНОК ===" << endl;
-            cout << "Ваши кредиты: " << player.credits << endl;
-            cout << "\n1. Купить предметы" << endl;
-            cout << "2. Купить улучшения для корабля" << endl;
-            cout << "3. Купить улучшения для оружия" << endl;
-            cout << "4. Выйти" << endl;
+            cout << "\n=== Р Р«РќРћРљ ===" << endl;
+            cout << "Р’Р°С€Рё РєСЂРµРґРёС‚С‹: " << player.credits << endl;
+            cout << "\n1. РљСѓРїРёС‚СЊ РїСЂРµРґРјРµС‚С‹" << endl;
+            cout << "2. РљСѓРїРёС‚СЊ СѓР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РєРѕСЂР°Р±Р»СЏ" << endl;
+            cout << "3. РљСѓРїРёС‚СЊ СѓР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РѕСЂСѓР¶РёСЏ" << endl;
+            cout << "4. Р’С‹Р№С‚Рё" << endl;
 
             int choice;
             cin >> choice;
             if (choice == 1) {
-                cout << "\nДоступные предметы:" << endl;
+                cout << "\nР”РѕСЃС‚СѓРїРЅС‹Рµ РїСЂРµРґРјРµС‚С‹:" << endl;
                 for (size_t i = 0; i < items.size(); i++) {
                     cout << i + 1 << ". " << items[i].name << " (" << items[i].description << ") - "
-                        << items[i].value << " кредитов" << endl;
+                        << items[i].value << " РєСЂРµРґРёС‚РѕРІ" << endl;
                 }
-                cout << "Выберите предмет для покупки (0 - назад): ";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСЂРµРґРјРµС‚ РґР»СЏ РїРѕРєСѓРїРєРё (0 - РЅР°Р·Р°Рґ): ";
                 int itemChoice;
                 cin >> itemChoice;
                 if (itemChoice > 0 && itemChoice <= items.size()) {
@@ -595,20 +595,20 @@ public:
                     if (player.credits >= selected.value) {
                         player.credits -= selected.value;
                         player.inventory.push_back(selected);
-                        cout << "Вы купили " << selected.name << "!" << endl;
+                        cout << "Р’С‹ РєСѓРїРёР»Рё " << selected.name << "!" << endl;
                     }
                     else {
-                        cout << "Недостаточно кредитов!" << endl;
+                        cout << "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ!" << endl;
                     }
                 }
             }
             else if (choice == 2) {
-                cout << "\nДоступные улучшения для корабля:" << endl;
+                cout << "\nР”РѕСЃС‚СѓРїРЅС‹Рµ СѓР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РєРѕСЂР°Р±Р»СЏ:" << endl;
                 for (size_t i = 0; i < shipUpgrades.size(); i++) {
                     cout << i + 1 << ". " << shipUpgrades[i].name << " (" << shipUpgrades[i].description << ") - "
-                        << shipUpgrades[i].value << " кредитов" << endl;
+                        << shipUpgrades[i].value << " РєСЂРµРґРёС‚РѕРІ" << endl;
                 }
-                cout << "Выберите улучшение для покупки (0 - назад): ";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ СѓР»СѓС‡С€РµРЅРёРµ РґР»СЏ РїРѕРєСѓРїРєРё (0 - РЅР°Р·Р°Рґ): ";
                 int upgradeChoice;
                 cin >> upgradeChoice;
                 if (upgradeChoice > 0 && upgradeChoice <= shipUpgrades.size()) {
@@ -616,49 +616,49 @@ public:
                     if (player.credits >= selected.value) {
                         player.credits -= selected.value;
                         ship.upgrades.push_back(selected);
-                        cout << "Вы купили " << selected.name << "!" << endl;
-                        if (selected.name.find("Щит") != string::npos) {
+                        cout << "Р’С‹ РєСѓРїРёР»Рё " << selected.name << "!" << endl;
+                        if (selected.name.find("Р©РёС‚") != string::npos) {
                             ship.maxShields += selected.power;
                             ship.shields = ship.maxShields;
                         }
-                        else if (selected.name.find("двигатель") != string::npos) {
+                        else if (selected.name.find("РґРІРёРіР°С‚РµР»СЊ") != string::npos) {
                             ship.maxEngines += selected.power;
                             ship.engines = ship.maxEngines;
                         }
                     }
                     else {
-                        cout << "Недостаточно кредитов!" << endl;
+                        cout << "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ!" << endl;
                     }
                 }
             }
             else if (choice == 3) {
-                cout << "\nДоступные улучшения для оружия:" << endl;
+                cout << "\nР”РѕСЃС‚СѓРїРЅС‹Рµ СѓР»СѓС‡С€РµРЅРёСЏ РґР»СЏ РѕСЂСѓР¶РёСЏ:" << endl;
                 for (size_t i = 0; i < weaponUpgrades.size(); i++) {
                     cout << i + 1 << ". " << weaponUpgrades[i].name << " (" << weaponUpgrades[i].description
-                        << ") - " << weaponUpgrades[i].value << " кредитов" << endl;
+                        << ") - " << weaponUpgrades[i].value << " РєСЂРµРґРёС‚РѕРІ" << endl;
                 }
-                cout << "Выберите улучшение для покупки (0 - назад): ";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ СѓР»СѓС‡С€РµРЅРёРµ РґР»СЏ РїРѕРєСѓРїРєРё (0 - РЅР°Р·Р°Рґ): ";
                 int wChoice;
                 cin >> wChoice;
                 if (wChoice > 0 && wChoice <= weaponUpgrades.size()) {
                     Item selected = weaponUpgrades[wChoice - 1];
                     if (player.credits >= selected.value) {
                         player.credits -= selected.value;
-                        // Применяем эффект улучшения
-                        if (selected.name.find("критического прицеливания") != string::npos) {
-                            player.critBonus += selected.power; // увеличиваем шанс критического удара
-                            cout << "Ваш шанс критического удара увеличен на " << selected.power << "%!" << endl;
+                        // РџСЂРёРјРµРЅСЏРµРј СЌС„С„РµРєС‚ СѓР»СѓС‡С€РµРЅРёСЏ
+                        if (selected.name.find("РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ РїСЂРёС†РµР»РёРІР°РЅРёСЏ") != string::npos) {
+                            player.critBonus += selected.power; // СѓРІРµР»РёС‡РёРІР°РµРј С€Р°РЅСЃ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР°
+                            cout << "Р’Р°С€ С€Р°РЅСЃ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° СѓРІРµР»РёС‡РµРЅ РЅР° " << selected.power << "%!" << endl;
                         }
-                        else if (selected.name.find("Усилитель урона") != string::npos) {
-                            // Увеличиваем базовый урон всех оружейных предметов игрока
+                        else if (selected.name.find("РЈСЃРёР»РёС‚РµР»СЊ СѓСЂРѕРЅР°") != string::npos) {
+                            // РЈРІРµР»РёС‡РёРІР°РµРј Р±Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ РІСЃРµС… РѕСЂСѓР¶РµР№РЅС‹С… РїСЂРµРґРјРµС‚РѕРІ РёРіСЂРѕРєР°
                             for (auto& weapon : player.weapons) {
                                 weapon.power += selected.power;
                             }
-                            cout << "Базовый урон вашего оружия увеличен на " << selected.power << "!" << endl;
+                            cout << "Р‘Р°Р·РѕРІС‹Р№ СѓСЂРѕРЅ РІР°С€РµРіРѕ РѕСЂСѓР¶РёСЏ СѓРІРµР»РёС‡РµРЅ РЅР° " << selected.power << "!" << endl;
                         }
                     }
                     else {
-                        cout << "Недостаточно кредитов!" << endl;
+                        cout << "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ!" << endl;
                     }
                 }
             }
@@ -669,7 +669,7 @@ public:
     }
 };
 
-// Класс для представления игры
+// РљР»Р°СЃСЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РёРіСЂС‹
 class Game {
 public:
     Character player;
@@ -677,54 +677,54 @@ public:
     vector<Sector> sectors;
     Market market;
     int currentSector;
-    int cluesFound; // количество собранных зацепок
-    int totalClues; // сколько нужно собрать
+    int cluesFound; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕР±СЂР°РЅРЅС‹С… Р·Р°С†РµРїРѕРє
+    int totalClues; // СЃРєРѕР»СЊРєРѕ РЅСѓР¶РЅРѕ СЃРѕР±СЂР°С‚СЊ
 
-    Game() : player("Игрок"), ship("Звездный скиталец"), currentSector(0), cluesFound(0), totalClues(5) {
+    Game() : player("РРіСЂРѕРє"), ship("Р—РІРµР·РґРЅС‹Р№ СЃРєРёС‚Р°Р»РµС†"), currentSector(0), cluesFound(0), totalClues(5) {
         initializeGame();
     }
 
     void initializeGame() {
         sectors.clear();
-        // Генерация секторов и планет. Зацепки определяются случайно для каждой планеты.
+        // Р“РµРЅРµСЂР°С†РёСЏ СЃРµРєС‚РѕСЂРѕРІ Рё РїР»Р°РЅРµС‚. Р—Р°С†РµРїРєРё РѕРїСЂРµРґРµР»СЏСЋС‚СЃСЏ СЃР»СѓС‡Р°Р№РЅРѕ РґР»СЏ РєР°Р¶РґРѕР№ РїР»Р°РЅРµС‚С‹.
         for (int i = 1; i <= 10; i++) {
-            Sector sector("Сектор " + to_string(i));
+            Sector sector("РЎРµРєС‚РѕСЂ " + to_string(i));
             int planetCount = rand() % 4 + 1;
             for (int j = 1; j <= planetCount; j++) {
                 bool hasClue = (rand() % 100 < 20);
-                Planet planet("Планета " + to_string(i) + "-" + to_string(j),
-                    "Описание планеты " + to_string(i) + "-" + to_string(j),
+                Planet planet("РџР»Р°РЅРµС‚Р° " + to_string(i) + "-" + to_string(j),
+                    "РћРїРёСЃР°РЅРёРµ РїР»Р°РЅРµС‚С‹ " + to_string(i) + "-" + to_string(j),
                     hasClue);
 
-                // Добавление предметов на планету
+                // Р”РѕР±Р°РІР»РµРЅРёРµ РїСЂРµРґРјРµС‚РѕРІ РЅР° РїР»Р°РЅРµС‚Сѓ
                 if (rand() % 100 < 70) {
                     int itemType = rand() % 3;
                     if (itemType == 0) {
-                        planet.items.push_back(Item("Аптечка", "Восстанавливает здоровье", 0, 15 + rand() % 20));
+                        planet.items.push_back(Item("РђРїС‚РµС‡РєР°", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ", 0, 15 + rand() % 20));
                     }
                     else if (itemType == 1) {
-                        planet.items.push_back(Item("Броня", "Восстанавливает броню", 0, 10 + rand() % 15));
+                        planet.items.push_back(Item("Р‘СЂРѕРЅСЏ", "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р±СЂРѕРЅСЋ", 0, 10 + rand() % 15));
                     }
                     else {
-                        planet.items.push_back(Item("Кредиты", "Деньги", 50 + rand() % 100, 0));
+                        planet.items.push_back(Item("РљСЂРµРґРёС‚С‹", "Р”РµРЅСЊРіРё", 50 + rand() % 100, 0));
                     }
                 }
 
-                // Добавление врагов на планету с диапазонами урона
+                // Р”РѕР±Р°РІР»РµРЅРёРµ РІСЂР°РіРѕРІ РЅР° РїР»Р°РЅРµС‚Сѓ СЃ РґРёР°РїР°Р·РѕРЅР°РјРё СѓСЂРѕРЅР°
                 if (rand() % 100 < 60) {
                     int enemyCount = rand() % 3 + 1;
                     for (int k = 0; k < enemyCount; k++) {
                         int enemyType = rand() % 3;
                         if (enemyType == 0) {
-                            planet.enemies.push_back(Enemy("Пират", "Космический пират",
+                            planet.enemies.push_back(Enemy("РџРёСЂР°С‚", "РљРѕСЃРјРёС‡РµСЃРєРёР№ РїРёСЂР°С‚",
                                 randomInRange(30, 60), 5, 10, randomInRange(20, 50)));
                         }
                         else if (enemyType == 1) {
-                            planet.enemies.push_back(Enemy("Робот", "Боевой дрон",
+                            planet.enemies.push_back(Enemy("Р РѕР±РѕС‚", "Р‘РѕРµРІРѕР№ РґСЂРѕРЅ",
                                 randomInRange(20, 40), 8, 16, randomInRange(15, 35)));
                         }
                         else {
-                            planet.enemies.push_back(Enemy("Хищник", "Местное опасное существо",
+                            planet.enemies.push_back(Enemy("РҐРёС‰РЅРёРє", "РњРµСЃС‚РЅРѕРµ РѕРїР°СЃРЅРѕРµ СЃСѓС‰РµСЃС‚РІРѕ",
                                 randomInRange(40, 80), 3, 10, randomInRange(10, 25)));
                         }
                     }
@@ -732,17 +732,17 @@ public:
                 sector.planets.push_back(planet);
             }
 
-            // Добавляем космических врагов в сектор с диапазонами урона
+            // Р”РѕР±Р°РІР»СЏРµРј РєРѕСЃРјРёС‡РµСЃРєРёС… РІСЂР°РіРѕРІ РІ СЃРµРєС‚РѕСЂ СЃ РґРёР°РїР°Р·РѕРЅР°РјРё СѓСЂРѕРЅР°
             if (rand() % 100 < 50) {
                 int enemyCount = rand() % 2 + 1;
                 for (int k = 0; k < enemyCount; k++) {
                     int enemyType = rand() % 2;
                     if (enemyType == 0) {
-                        sector.spaceEnemies.push_back(Enemy("Пиратский корабль", "Корабль космических пиратов",
+                        sector.spaceEnemies.push_back(Enemy("РџРёСЂР°С‚СЃРєРёР№ РєРѕСЂР°Р±Р»СЊ", "РљРѕСЂР°Р±Р»СЊ РєРѕСЃРјРёС‡РµСЃРєРёС… РїРёСЂР°С‚РѕРІ",
                             randomInRange(50, 100), 10, 15, randomInRange(50, 100)));
                     }
                     else {
-                        sector.spaceEnemies.push_back(Enemy("Дрон-истребитель", "Автономный боевой дрон",
+                        sector.spaceEnemies.push_back(Enemy("Р”СЂРѕРЅ-РёСЃС‚СЂРµР±РёС‚РµР»СЊ", "РђРІС‚РѕРЅРѕРјРЅС‹Р№ Р±РѕРµРІРѕР№ РґСЂРѕРЅ",
                             randomInRange(30, 60), 15, 20, randomInRange(40, 80)));
                     }
                 }
@@ -751,7 +751,7 @@ public:
         }
     }
 
-    // Функция для восстановления здоровья вне боя (без случайных событий)
+    // Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ Р·РґРѕСЂРѕРІСЊСЏ РІРЅРµ Р±РѕСЏ (Р±РµР· СЃР»СѓС‡Р°Р№РЅС‹С… СЃРѕР±С‹С‚РёР№)
     void regenerateHealth() {
         if (player.health < player.maxHealth) {
             int regen = 2;
@@ -759,26 +759,26 @@ public:
         }
     }
 
-    // Главное меню игры без возможности сохранения/загрузки.
-    // При сборе всех зацепок игроку предлагается выбор двух концовок.
+    // Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ РёРіСЂС‹ Р±РµР· РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ/Р·Р°РіСЂСѓР·РєРё.
+    // РџСЂРё СЃР±РѕСЂРµ РІСЃРµС… Р·Р°С†РµРїРѕРє РёРіСЂРѕРєСѓ РїСЂРµРґР»Р°РіР°РµС‚СЃСЏ РІС‹Р±РѕСЂ РґРІСѓС… РєРѕРЅС†РѕРІРѕРє.
     void start() {
         cout << "=== LAST DEAL ===" << endl;
-        cout << "Вы - бывший киллер, вынужденный выполнить последний заказ." << endl;
-        cout << "Ваша цель - особо опасный преступник, сбежавший из тюрьмы." << endl;
-        cout << "Исследуйте галактику, находите зацепки и выполните миссию." << endl;
-        cout << "Но помните - космос таит в себе множество опасностей!" << endl;
+        cout << "Р’С‹ - Р±С‹РІС€РёР№ РєРёР»Р»РµСЂ, РІС‹РЅСѓР¶РґРµРЅРЅС‹Р№ РІС‹РїРѕР»РЅРёС‚СЊ РїРѕСЃР»РµРґРЅРёР№ Р·Р°РєР°Р·." << endl;
+        cout << "Р’Р°С€Р° С†РµР»СЊ - РѕСЃРѕР±Рѕ РѕРїР°СЃРЅС‹Р№ РїСЂРµСЃС‚СѓРїРЅРёРє, СЃР±РµР¶Р°РІС€РёР№ РёР· С‚СЋСЂСЊРјС‹." << endl;
+        cout << "РСЃСЃР»РµРґСѓР№С‚Рµ РіР°Р»Р°РєС‚РёРєСѓ, РЅР°С…РѕРґРёС‚Рµ Р·Р°С†РµРїРєРё Рё РІС‹РїРѕР»РЅРёС‚Рµ РјРёСЃСЃРёСЋ." << endl;
+        cout << "РќРѕ РїРѕРјРЅРёС‚Рµ - РєРѕСЃРјРѕСЃ С‚Р°РёС‚ РІ СЃРµР±Рµ РјРЅРѕР¶РµСЃС‚РІРѕ РѕРїР°СЃРЅРѕСЃС‚РµР№!" << endl;
 
         while (player.health > 0 && ship.hull > 0 && cluesFound < totalClues) {
-            cout << "\n=== ГЛАВНОЕ МЕНЮ ===" << endl;
-            cout << "Текущий сектор: " << sectors[currentSector].name << endl;
-            cout << "Собрано зацепок: " << cluesFound << "/" << totalClues << endl;
-            cout << "Кредиты: " << player.credits << endl;
-            cout << "\n1. Исследовать сектор" << endl;
-            cout << "2. Перейти в следующий сектор" << endl;
-            cout << "3. Посетить рынок" << endl;
-            cout << "4. Показать состояние" << endl;
-            cout << "5. Использовать предмет (из инвентаря)" << endl;
-            cout << "Введите номер выбранного действия: ";
+            cout << "\n=== Р“Р›РђР’РќРћР• РњР•РќР® ===" << endl;
+            cout << "РўРµРєСѓС‰РёР№ СЃРµРєС‚РѕСЂ: " << sectors[currentSector].name << endl;
+            cout << "РЎРѕР±СЂР°РЅРѕ Р·Р°С†РµРїРѕРє: " << cluesFound << "/" << totalClues << endl;
+            cout << "РљСЂРµРґРёС‚С‹: " << player.credits << endl;
+            cout << "\n1. РСЃСЃР»РµРґРѕРІР°С‚СЊ СЃРµРєС‚РѕСЂ" << endl;
+            cout << "2. РџРµСЂРµР№С‚Рё РІ СЃР»РµРґСѓСЋС‰РёР№ СЃРµРєС‚РѕСЂ" << endl;
+            cout << "3. РџРѕСЃРµС‚РёС‚СЊ СЂС‹РЅРѕРє" << endl;
+            cout << "4. РџРѕРєР°Р·Р°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ" << endl;
+            cout << "5. РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРµРґРјРµС‚ (РёР· РёРЅРІРµРЅС‚Р°СЂСЏ)" << endl;
+            cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РґРµР№СЃС‚РІРёСЏ: ";
             int choice;
             cin >> choice;
             switch (choice) {
@@ -788,17 +788,17 @@ public:
             case 2:
                 if (currentSector < sectors.size() - 1) {
                     currentSector++;
-                    cout << "Вы переместились в " << sectors[currentSector].name << endl;
-                    // Активное действие сопровождается случайным событием
+                    cout << "Р’С‹ РїРµСЂРµРјРµСЃС‚РёР»РёСЃСЊ РІ " << sectors[currentSector].name << endl;
+                    // РђРєС‚РёРІРЅРѕРµ РґРµР№СЃС‚РІРёРµ СЃРѕРїСЂРѕРІРѕР¶РґР°РµС‚СЃСЏ СЃР»СѓС‡Р°Р№РЅС‹Рј СЃРѕР±С‹С‚РёРµРј
                     if (rand() % 100 < 20) {
-                        cout << "\nСлучайное событие: вы обнаружили заброшенный космический корабль! ";
+                        cout << "\nРЎР»СѓС‡Р°Р№РЅРѕРµ СЃРѕР±С‹С‚РёРµ: РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё Р·Р°Р±СЂРѕС€РµРЅРЅС‹Р№ РєРѕСЃРјРёС‡РµСЃРєРёР№ РєРѕСЂР°Р±Р»СЊ! ";
                         int bonus = randomInRange(5, 10);
-                        cout << "Бонус: " << bonus << " кредитов." << endl;
+                        cout << "Р‘РѕРЅСѓСЃ: " << bonus << " РєСЂРµРґРёС‚РѕРІ." << endl;
                         player.credits += bonus;
                     }
                 }
                 else {
-                    cout << "Вы достигли конца известного пространства!" << endl;
+                    cout << "Р’С‹ РґРѕСЃС‚РёРіР»Рё РєРѕРЅС†Р° РёР·РІРµСЃС‚РЅРѕРіРѕ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР°!" << endl;
                 }
                 break;
             case 3:
@@ -810,63 +810,63 @@ public:
                 break;
             case 5:
                 if (player.inventory.empty()) {
-                    cout << "У вас нет предметов в инвентаре!" << endl;
+                    cout << "РЈ РІР°СЃ РЅРµС‚ РїСЂРµРґРјРµС‚РѕРІ РІ РёРЅРІРµРЅС‚Р°СЂРµ!" << endl;
                 }
                 else {
-                    cout << "\n=== ИНВЕНТАРЬ ===" << endl;
+                    cout << "\n=== РРќР’Р•РќРўРђР Р¬ ===" << endl;
                     for (size_t i = 0; i < player.inventory.size(); i++) {
                         cout << i + 1 << ". " << player.inventory[i].name
                             << " (" << player.inventory[i].description << ")" << endl;
                     }
-                    cout << "Выберите предмет для использования (0 - отмена): ";
+                    cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСЂРµРґРјРµС‚ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ (0 - РѕС‚РјРµРЅР°): ";
                     int itemChoice;
                     cin >> itemChoice;
                     if (itemChoice > 0 && itemChoice <= player.inventory.size()) {
                         Item usedItem = player.inventory[itemChoice - 1];
-                        if (usedItem.name.find("Аптечка") != string::npos) {
+                        if (usedItem.name.find("РђРїС‚РµС‡РєР°") != string::npos) {
                             player.heal(usedItem.power);
                         }
-                        else if (usedItem.name.find("Броня") != string::npos) {
+                        else if (usedItem.name.find("Р‘СЂРѕРЅСЏ") != string::npos) {
                             player.repairArmor(usedItem.power);
                         }
                         else {
-                            cout << "Этот предмет не может быть использован вне боя." << endl;
+                            cout << "Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РІРЅРµ Р±РѕСЏ." << endl;
                         }
                         player.inventory.erase(player.inventory.begin() + itemChoice - 1);
                     }
                 }
                 break;
             default:
-                cout << "Неверный выбор. Попробуйте снова." << endl;
+                cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°." << endl;
                 break;
             }
             regenerateHealth();
         }
 
         if (player.health <= 0) {
-            cout << "\nИГРА ОКОНЧЕНА. Ваш персонаж погиб." << endl;
+            cout << "\nРР“Р Рђ РћРљРћРќР§Р•РќРђ. Р’Р°С€ РїРµСЂСЃРѕРЅР°Р¶ РїРѕРіРёР±." << endl;
         }
         else if (ship.hull <= 0) {
-            cout << "\nИГРА ОКОНЧЕНА. Ваш корабль уничтожен." << endl;
+            cout << "\nРР“Р Рђ РћРљРћРќР§Р•РќРђ. Р’Р°С€ РєРѕСЂР°Р±Р»СЊ СѓРЅРёС‡С‚РѕР¶РµРЅ." << endl;
         }
         else if (cluesFound >= totalClues) {
-            // Финальное событие с выбором двух вариантов концовки
-            cout << "\nПОЗДРАВЛЯЕМ! Вы собрали все зацепки." << endl;
-            cout << "Перед вами стоит последний выбор:" << endl;
-            cout << "1. Убить преступника" << endl;
-            cout << "2. Сдать преступника полиции" << endl;
+            // Р¤РёРЅР°Р»СЊРЅРѕРµ СЃРѕР±С‹С‚РёРµ СЃ РІС‹Р±РѕСЂРѕРј РґРІСѓС… РІР°СЂРёР°РЅС‚РѕРІ РєРѕРЅС†РѕРІРєРё
+            cout << "\nРџРћР—Р”Р РђР’Р›РЇР•Рњ! Р’С‹ СЃРѕР±СЂР°Р»Рё РІСЃРµ Р·Р°С†РµРїРєРё." << endl;
+            cout << "РџРµСЂРµРґ РІР°РјРё СЃС‚РѕРёС‚ РїРѕСЃР»РµРґРЅРёР№ РІС‹Р±РѕСЂ:" << endl;
+            cout << "1. РЈР±РёС‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР°" << endl;
+            cout << "2. РЎРґР°С‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР° РїРѕР»РёС†РёРё" << endl;
             int finalChoice;
             cin >> finalChoice;
             if (finalChoice == 1) {
-                cout << "\nВы решаете убить преступника. В ожесточенном бою вы уничтожаете его, но поступаете жестоко." << endl;
-                cout << "Концовка: Вы остались в одиночестве, теряя часть человечности." << endl;
+                cout << "\nР’С‹ СЂРµС€Р°РµС‚Рµ СѓР±РёС‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР°. Р’ РѕР¶РµСЃС‚РѕС‡РµРЅРЅРѕРј Р±РѕСЋ РІС‹ СѓРЅРёС‡С‚РѕР¶Р°РµС‚Рµ РµРіРѕ, РЅРѕ РїРѕСЃС‚СѓРїР°РµС‚Рµ Р¶РµСЃС‚РѕРєРѕ." << endl;
+                cout << "РљРѕРЅС†РѕРІРєР°: Р’С‹ РѕСЃС‚Р°Р»РёСЃСЊ РІ РѕРґРёРЅРѕС‡РµСЃС‚РІРµ, С‚РµСЂСЏСЏ С‡Р°СЃС‚СЊ С‡РµР»РѕРІРµС‡РЅРѕСЃС‚Рё." << endl;
             }
             else if (finalChoice == 2) {
-                cout << "\nВы решаете сдать преступника полиции. Ваш поступок приносит вам уважение, и вы вновь обретаете доверие общества." << endl;
-                cout << "Концовка: Правосудие восторжествует, а ваша репутация улучшится." << endl;
+                cout << "\nР’С‹ СЂРµС€Р°РµС‚Рµ СЃРґР°С‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР° РїРѕР»РёС†РёРё. Р’Р°С€ РїРѕСЃС‚СѓРїРѕРє РїСЂРёРЅРѕСЃРёС‚ РІР°Рј СѓРІР°Р¶РµРЅРёРµ, Рё РІС‹ РІРЅРѕРІСЊ РѕР±СЂРµС‚Р°РµС‚Рµ РґРѕРІРµСЂРёРµ РѕР±С‰РµСЃС‚РІР°." << endl;
+                cout << "РљРѕРЅС†РѕРІРєР°: РџСЂР°РІРѕСЃСѓРґРёРµ РІРѕСЃС‚РѕСЂР¶РµСЃС‚РІСѓРµС‚, Р° РІР°С€Р° СЂРµРїСѓС‚Р°С†РёСЏ СѓР»СѓС‡С€РёС‚СЃСЏ." << endl;
             }
             else {
-                cout << "\nНеверный выбор. Судьба преступника остается неизвестной." << endl;
+                cout << "\nРќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РЎСѓРґСЊР±Р° РїСЂРµСЃС‚СѓРїРЅРёРєР° РѕСЃС‚Р°РµС‚СЃСЏ РЅРµРёР·РІРµСЃС‚РЅРѕР№." << endl;
             }
         }
     }
