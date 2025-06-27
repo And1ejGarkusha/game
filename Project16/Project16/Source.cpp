@@ -513,6 +513,10 @@ public:
             spaceCombat(ship, player, spaceEnemies);
         }
 
+        if (ship.hull <= 0 || player.health <= 0) {
+            return;
+        }
+
         if (!planets.empty()) {
             cout << "\nДоступные планеты в секторе:" << endl;
             for (size_t i = 0; i < planets.size(); i++) {
@@ -748,6 +752,20 @@ public:
                 }
             }
             sectors.push_back(sector);
+        }
+        vector<Planet*> allPlanetsWithoutClue;
+        int clueCount = 0;
+        for (auto& sector : sectors) {
+            for (auto& planet : sector.planets) {
+                if (planet.hasClue) clueCount++;
+                else allPlanetsWithoutClue.push_back(&planet);
+            }
+        }
+        while (clueCount < totalClues && !allPlanetsWithoutClue.empty()) {
+            int idx = rand() % allPlanetsWithoutClue.size();
+            allPlanetsWithoutClue[idx]->hasClue = true;
+            clueCount++;
+            allPlanetsWithoutClue.erase(allPlanetsWithoutClue.begin() + idx);
         }
     }
 
