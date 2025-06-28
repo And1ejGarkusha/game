@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <locale>
 
 using json = nlohmann::json;
 
@@ -224,7 +225,7 @@ public:
         : name(n), description(d), health(h), maxHealth(h), minPower(minP), maxPower(maxP), reward(r) {}
 
     void printStatus() {
-        std::cout << loc.getWithReplace("enemy.status",
+        std::cout << loc.getWithReplace("enemies.status",
             { name, std::to_string(health), std::to_string(maxHealth) }) << std::endl;
     }
 
@@ -975,9 +976,10 @@ public:
 int main() {
     std::srand(std::time(0));
     std::setlocale(LC_ALL, "Russian");
-
+    std::locale::global(std::locale{ ".UTF-8" }); // inform standard library application logic uses UTF-8
+    std::cout.imbue(std::locale(""));
     // Загрузка локализации
-    if (!loc.load("C:/Users/andre/OneDrive/Документы/GitHub/game/Project16/localization.json")) {
+    if (!loc.load("localization.json")) {
         std::cerr << "Failed to load localization file. Using default texts." << std::endl;
     }
 
