@@ -19,4 +19,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="localization.json">
+      <Filter>Исходные файлы</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
 </Project>
