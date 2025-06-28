@@ -34,7 +34,20 @@ public:
 
     std::string get(const std::string& key, const std::string& defaultValue = "") const {
         try {
-            return texts.at(key).get<std::string>();
+            // Разбиваем ключ по точкам
+            size_t pos = 0;
+            size_t prev = 0;
+            const json* current = &texts;
+
+            while ((pos = key.find('.', prev)) != std::string::npos) {
+                std::string part = key.substr(prev, pos - prev);
+                if (!current->contains(part)) return defaultValue;
+                current = &(*current)[part];
+                prev = pos + 1;
+            }
+
+            std::string last_part = key.substr(prev);
+            return current->at(last_part).get<std::string>();
         }
         catch (...) {
             std::cerr << "Missing localization key: " << key << std::endl;
@@ -42,23 +55,20 @@ public:
         }
     }
 
-    std::string getWithReplace(const std::string& key, const std::vector<std::string>& replacements, const std::string& defaultValue = "") const {
-        try {
-            std::string result = texts.at(key).get<std::string>();
-            for (size_t i = 0; i < replacements.size(); ++i) {
-                std::string placeholder = "{" + std::to_string(i) + "}";
-                size_t pos = result.find(placeholder);
-                while (pos != std::string::npos) {
-                    result.replace(pos, placeholder.length(), replacements[i]);
-                    pos = result.find(placeholder, pos + replacements[i].length());
-                }
+    std::string getWithReplace(const std::string& key, const std::vector<std::string>& replacements,
+        const std::string& defaultValue = "") const {
+        std::string result = get(key, defaultValue);
+        if (result.empty()) return defaultValue;
+
+        for (size_t i = 0; i < replacements.size(); ++i) {
+            std::string placeholder = "{" + std::to_string(i) + "}";
+            size_t pos = result.find(placeholder);
+            while (pos != std::string::npos) {
+                result.replace(pos, placeholder.length(), replacements[i]);
+                pos = result.find(placeholder, pos + replacements[i].length());
             }
-            return result;
         }
-        catch (...) {
-            std::cerr << "Missing localization key: " << key << std::endl;
-            return defaultValue;
-        }
+        return result;
     }
 };
 

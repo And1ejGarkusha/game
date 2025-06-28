@@ -1,3 +1,1 @@
-﻿  Source.cpp
-C:\Users\andre\OneDrive\Документы\GitHub\game\Project16\Project16\Source.cpp(966,25): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  Project16.vcxproj -> C:\Users\andre\OneDrive\Документы\GitHub\game\Project16\x64\Debug\Project16.exe
+﻿  Project16.vcxproj -> C:\Users\andre\OneDrive\Документы\GitHub\game\Project16\x64\Debug\Project16.exe
